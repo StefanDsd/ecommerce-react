@@ -40,7 +40,7 @@ import axios from "axios"
     const [categoriesResp, errorResp, isLoading] = useFetch(
         `https://api.escuelajs.co/api/v1/categories`
     );
-    
+
     if (isLoading) {
         return <h2>request is still in process, loading..</h2>;
     }
@@ -51,8 +51,18 @@ import axios from "axios"
     }
   return (
     <div>
-       <CategoriesList data={categoriesResp.data}/>
-       {/* <CategoryItem /> */}
+      <CategoriesList>
+        {categoriesResp.data.map((element, index) => {
+          const { id, name, image } = element;
+          return (
+            <div key={id || index}>
+              <h3>{name}</h3>
+              <img src={image} alt={element.name} />
+            </div>
+          );
+        })}
+      </CategoriesList>
+      {/* <CategoryItem/> */}
     </div>
   )
 }
