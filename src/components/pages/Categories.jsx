@@ -1,16 +1,12 @@
 import React from 'react'
+import CategoriesList from "../categories-list"
+import CategoryItem from "../category-item"
 
 const Categories = () => {
   return (
     <div>
-         <ul>
-        <li>
-          <b>file name:</b> categories.jsx
-        </li>
-        <li>
-          <b>component name:</b> Categories
-        </li>
-      </ul>
+       <CategoriesList/>
+       <CategoryItem />
     </div>
   )
 }
