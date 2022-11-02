@@ -2,7 +2,16 @@ import React from 'react'
 
 const Categories = () => {
   return (
-    <div>Categories</div>
+    <div>
+         <ul>
+        <li>
+          <b>file name:</b> categories.jsx
+        </li>
+        <li>
+          <b>component name:</b> Categories
+        </li>
+      </ul>
+    </div>
   )
 }
 
