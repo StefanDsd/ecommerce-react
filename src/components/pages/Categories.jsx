@@ -51,18 +51,13 @@ import axios from "axios"
     }
   return (
     <div>
+      <div>
       <CategoriesList>
-        {categoriesResp.data.map((element, index) => {
-          const { id, name, image } = element;
-          return (
-            <div key={id || index}>
-              <h3>{name}</h3>
-              <img src={image} alt={element.name} />
-            </div>
-          );
-        })}
+        {categoriesResp.data.map(({ id, name, image }, index) => (
+          <CategoryItem key={id || index} name={name} image={image} />
+        ))}
       </CategoriesList>
-      {/* <CategoryItem/> */}
+    </div>
     </div>
   )
 }
