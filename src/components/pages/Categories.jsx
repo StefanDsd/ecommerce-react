@@ -1,5 +1,7 @@
 import React from 'react'
 import CategoriesList from "../categories-list"
+import { useState} from 'react'
+import { useEffect } from 'react'
 import CategoryItem from "../category-item"
 import axios from "axios"
 
@@ -33,11 +35,18 @@ const data = [
     },
   ];
 
-const Categories = () => {
-    axios
-    .get(`https://api.escuelajs.co/api/v1/categories`)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error, "error"));
+  export const Categories = () => {
+    const [categoriesResp, setCategoriesResp] = useState([]);
+    const [errorResp, setErrorResp] = useState(null);
+  
+    useEffect(() => {
+      axios
+        .get(`https://api.escuelajs.co/api/v1/categories`)
+        .then((response) => setCategoriesResp(response))
+        .catch((error) => setErrorResp(error, "error"));
+    }, []);
+
+    console.log(categoriesResp)
   return (
     <div>
        <CategoriesList data={data}/>
